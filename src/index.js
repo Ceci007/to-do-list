@@ -1,6 +1,6 @@
 import './styles/styles.css';
 
-const name = 'Ceci';
+const name = 'Yahir';
 
 const greeting = (name) => {
   console.log(`hello there, ${name}`);
