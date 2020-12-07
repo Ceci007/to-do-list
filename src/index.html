@@ -2,50 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>to-do list</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <title>ToDoList</title>
 </head>
 <body class="body">
   <main class="main">
     <div class="main__container">
-      <button class="add-list-button">+</button>
-      <span class="add-list-button__text">Add new list</span>
 
-      <section class="task-list">
-        <div class="list">
-          <div class="list-description">
-            <h1 class="list-description__h1">Daily plans</h1>
-            <input type="text"> <!-- maybe add font awesome icons later on -->
-          </div>
-          <ul class="tasks">
-            <li class="tasks__task-item">
-              <div class="tasks__task-element">
-                <i class="tasks__radio-button"></i>
-                <h2 class="tasks__h2">Prepare a dish</h2>
-                <div class="tasks__priority"></div>
-                <time class="tasks__rest-time">1 day left</time>
-                <i class="tasks__delete-task-icon"></i>
-              </div>
-            </li>
-            <li class="tasks__task-item">
-              <div class="tasks__task-element">
-                <i class="tasks__radio-button"></i>
-                <h2 class="tasks__h2">Prepare a dish</h2>
-                <div class="tasks__priority"></div>
-                <time class="tasks__rest-time">1 day left</time>
-                <i class="tasks__delete-task-icon"></i>
-              </div>
-            </li>
-          </ul>
-          <form class="add-task" tabindex="0">
-            <fieldset class="add-task__fields">
-              <input class="add-task__name-input add-task__add-button" placeholder="Click to add task" type="text">
-              <i class="add-task__button-icon"></i>
-            </fieldset>
-          </form>
-        </div>
+      <button class="add-list-button">
+        <svg class="add-list-button__icon">
+          <use xlink:href="#plus_simple"></use> 
+        </svg>
+        <span class="add-list-button__text">Add new list</span>
+      </button>
+    
+      <section class="task-lists">
+
       </section>
+
     </div>
   </main>
+  
+  
+  <section class="add-list-wrapper add-list-wrapper_display_none">
+
+    <div class="add-list-menu">
+      <h2 class="add-list-menu__h2">Name new list</h2>
+      <input type="text" class="add-list-menu__input" placeholder="Name...">
+      <div class="add-list-menu__buttons">
+        <button class="add-list-menu__button add-list-menu__button_action_cancel">Cancel</button>
+        <button class="add-list-menu__button add-list-menu__button_action_create">Create</button>
+      </div>
+    </div>
+
+  </section>
+
 </body>
 </html>
