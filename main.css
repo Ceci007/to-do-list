@@ -3,6 +3,9 @@
     --clr-light: #f4f4f4;
     --clr-dark: #333;
     --clr-warning: rgb(99, 36, 36);
+    --priority-1: #6CF1AB;
+    --priority-2: #FFFF7F;
+    --priority-3: #7FFFFF;
   }
   
   *,
@@ -69,10 +72,21 @@
     font-weight: 900;
     margin-right: 0.25em;
     transition: opacity 250ms ease-in;
-  }
-  
+  } 
+
   .btn.create:hover {
     opacity: 0.7;
+  } 
+
+  .btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: #fff;
+    padding: 10px 30px;
+    margin-top: 20px;
+  }
+
+  .btn:focus {
+    outline: none
   }
   
   .btn.delete {
@@ -271,4 +285,22 @@
     left: 0;
     bottom: -35px;
     color: var(--clr-light);
+  }
+
+  .priority-1, .priority-2, .priority-3 {
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+  }
+
+  .priority-1 {
+    background-color: var(--priority-1);
+  }
+
+  .priority-2 {
+    background-color: var(--priority-2);
+  }
+
+  .priority-3 {
+    background-color: var(--priority-3);
   }
