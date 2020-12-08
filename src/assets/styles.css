@@ -23,7 +23,7 @@
     background-color: var(--clr-primary);
     color: var(--clr-light);
     display: grid;
-    grid: "header header header header" auto "...... lists  active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+    grid: "header header header header" auto "...... lists  active ......" auto/1fr minmax(100px, 600px) minmax(250px, 500px) 1fr;
   }
   
   .title {
@@ -109,6 +109,11 @@
     padding: 0.25em;
     transition: border-bottom 150ms ease-in;
     order: 2;
+    width: 350px; 
+  }
+
+  .new-2 {
+    width: 100%;
   }
   
   .new::-webkit-input-placeholder {
@@ -164,7 +169,7 @@
     grid-area: active;
     background: var(--clr-light);
     color: var(--clr-dark);
-    width: 1000px;
+    width: 800px;
   }
   
   .todo-header {
@@ -304,4 +309,21 @@
 
   .priority-3 {
     background-color: var(--priority-3);
+  }
+
+  .priority {
+    border: rgba(0,0,0, 0.2);
+    width: 110px; 
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .due-date {
+    width: 200px; 
+    border: rgba(0,0,0, 0.2);
+    text-align: center;
+  }
+
+  .due-date:focus, .priority:focus {
+    outline: none;
   }
