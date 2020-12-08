@@ -1,9 +1,16 @@
+import {tasksContainer} from './task_logic';
+
+const taskTemplate = document.getElementById('task-template');
+const listCountElement = document.querySelector('[data-list-count]')
+const listsContainer = document.querySelector('[data-lists]')
+const listDisplayContainer = document.querySelector('[data-list-display-container]');
+const listTitleElement = document.querySelector('[data-list-title]')
+
 const LOCAL_STORAGE_LIST_KEY = 'task.lists'
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId'
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
-const listDisplayContainer = document.querySelector('[data-list-display-container]')
-const listTitleElement = document.querySelector('[data-list-title]')
+
 
 const saveAndRender = () => {
     save()
@@ -28,7 +35,7 @@ const saveAndRender = () => {
     })
   }
 
-  renderTasks = selectedList => {
+  const renderTasks = selectedList => {
     selectedList.tasks.forEach(task => {
       const taskElement = document.importNode(taskTemplate.content, true)
       const checkbox = taskElement.querySelector('input')
@@ -46,10 +53,10 @@ const saveAndRender = () => {
     const taskString = incompleteTaskCount === 1 ? "task" : "tasks"
     listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`
   }
-  
+
   const render = () => {
-    clearElement(listsContainer)
-    renderLists()
+    clearElement(listsContainer);
+    renderLists();
   
     const selectedList = lists.find(list => list.id === selectedListId)
     if (selectedListId == null) {
@@ -69,5 +76,11 @@ const saveAndRender = () => {
     }
   }
 
-  export {saveAndRender, save, renderTaskCount, render}
-  
+  export {
+    saveAndRender, 
+    save, 
+    renderTaskCount, 
+    renderLists, 
+    renderTasks, 
+    lists, 
+    selectedListId}

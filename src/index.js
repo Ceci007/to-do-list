@@ -1,5 +1,5 @@
-import './assets/styles.css'
-import { render } from './modules/render_save'
+import './assets/styles.css';
+import { render } from './modules/render_save';
 
-render()
+render();
 

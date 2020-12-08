@@ -1,10 +1,8 @@
-import { saveAndRender } from './render_save';
+import { saveAndRender, listsContainer, lists, selectedListId } from './render_save';
 
-const listsContainer = document.querySelector('[data-lists]')
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
 const deleteListButton = document.querySelector('[data-delete-list-button]')
-
 
 
 listsContainer.addEventListener('click', e => {
@@ -30,7 +28,7 @@ listsContainer.addEventListener('click', e => {
     saveAndRender()
   })
 
-  const createList = name => {
+  function createList(name) {
     return { id: Date.now().toString(), name: name, tasks: [] }
   }
 
