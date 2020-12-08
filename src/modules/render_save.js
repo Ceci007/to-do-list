@@ -42,6 +42,15 @@ const saveAndRender = () => {
       checkbox.id = task.id
       checkbox.checked = task.complete
       const label = taskElement.querySelector('label')
+
+      if(task.priority == 1) {
+        label.classList.add('priority-1')
+      } else if (task.priority == 2) {
+        label.classList.add('priority-2')
+      } else if (task.priority == 3) {
+        label.classList.add('priority-3')
+      }
+
       label.htmlFor = task.id
       label.append(task.name)
       tasksContainer.appendChild(taskElement)

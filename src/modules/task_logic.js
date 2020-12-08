@@ -2,13 +2,15 @@ import { save, saveAndRender, renderTaskCount, lists, selectedListId } from './r
 
 const tasksContainer = document.querySelector('[data-tasks]');
 const newTaskForm = document.querySelector('[data-new-task-form]');
+const newPriorityInput = document.querySelector('[data-new-priority-input]')
 const newTaskInput = document.querySelector('[data-new-task-input]');
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]');
 
-function Task(name, id, complete) {
+function Task(name, id, complete, priority) {
   this.id = id;
   this.name = name;
   this.complete = complete
+  this.priority = priority
 }
 
 tasksContainer.addEventListener('click', e => {
@@ -32,12 +34,13 @@ tasksContainer.addEventListener('click', e => {
   newTaskForm.addEventListener('submit', e => {
     e.preventDefault()
     const taskName = newTaskInput.value
-    console.log('hello')
+    const taskPriority = newPriorityInput.value
     if (taskName == null || taskName === '') return
-    const task = new Task(taskName,Date.now().toString(), false)
+    const task = new Task(taskName, Date.now().toString(), false, taskPriority)
     newTaskInput.value = null
     const selectedList = lists.find(list => list.id === selectedListId)
     selectedList.tasks.push(task)
+    
     saveAndRender()
   })
   
