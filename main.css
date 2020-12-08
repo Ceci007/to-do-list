@@ -164,6 +164,7 @@
     grid-area: active;
     background: var(--clr-light);
     color: var(--clr-dark);
+    width: 1000px;
   }
   
   .todo-header {
