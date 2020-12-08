@@ -1,8 +1,8 @@
 import {tasksContainer} from './task_logic';
+import {listsContainer} from './list_logic';
 
 const taskTemplate = document.getElementById('task-template');
 const listCountElement = document.querySelector('[data-list-count]')
-const listsContainer = document.querySelector('[data-lists]')
 const listDisplayContainer = document.querySelector('[data-list-display-container]');
 const listTitleElement = document.querySelector('[data-list-title]')
 
@@ -79,6 +79,7 @@ const saveAndRender = () => {
   export {
     saveAndRender, 
     save, 
+    render,
     renderTaskCount, 
     renderLists, 
     renderTasks, 
