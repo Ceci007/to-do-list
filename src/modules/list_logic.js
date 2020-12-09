@@ -11,8 +11,6 @@ function List(name, id, tasks) {
   this.tasks = tasks
 }
 
-// let whate = new List('yahir');
-
 listsContainer.addEventListener('click', e => {
   console.log('hello')
     if (e.target.tagName.toLowerCase() === 'li') {

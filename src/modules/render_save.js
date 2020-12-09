@@ -43,6 +43,8 @@ const saveAndRender = () => {
       checkbox.checked = task.complete
       const label = taskElement.querySelector('label')
       const dueDateText = document.createElement('span');
+      dueDateText.classList.add('small-text');
+
       dueDateText.innerText = task.dueDate
       if(task.priority == 1) {
         label.classList.add('priority-1')
