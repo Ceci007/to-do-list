@@ -1,9 +1,10 @@
 import { saveAndRender, lists, selectedListId } from './render_save'; // eslint-disable-line 
 
+const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
 const deleteListButton = document.querySelector('[data-delete-list-button]');
-const listsContainer = document.querySelector('[data-lists]');
+
 
 function List(name, id, tasks) {
   this.id = id;
@@ -11,18 +12,22 @@ function List(name, id, tasks) {
   this.tasks = tasks;
 }
 
+const listListener = (listsContainer) => {
 listsContainer.addEventListener('click', e => {
   if (e.target.tagName.toLowerCase() === 'li') {
     selectedListId = e.target.dataset.listId;
     saveAndRender();
   }
 });
+}
 
+const deleteListener = (deleteListButton) => {
 deleteListButton.addEventListener('click', () => {
   lists = lists.filter(list => list.id !== selectedListId);
   selectedListId = null;
   saveAndRender();
 });
+}
 
 newListForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -33,5 +38,11 @@ newListForm.addEventListener('submit', e => {
   lists.push(list);
   saveAndRender();
 });
+
+deleteListener(deleteListButton)
+listListener(listsContainer)
 /* eslint-disable import/prefer-default-export */
-export { listsContainer };
+
+export {
+  listsContainer
+}

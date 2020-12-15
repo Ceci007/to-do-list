@@ -6,6 +6,7 @@ const listCountElement = document.querySelector('[data-list-count]');
 const listDisplayContainer = document.querySelector('[data-list-display-container]');
 const listTitleElement = document.querySelector('[data-list-title]');
 
+
 const LOCAL_STORAGE_LIST_KEY = 'task.lists';
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []; // eslint-disable-line 
@@ -87,6 +88,9 @@ const saveAndRender = () => {
   save();
   render();
 };
+const sum = (a, b) => {
+  return a + b;
+}
 
 export {
   saveAndRender,

@@ -8,7 +8,7 @@ const newTaskInput = document.querySelector('[data-new-task-input]');
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]');
 
 function Task(name, id, complete, priority, dueDate) {
-  this.id = id;
+  this.id
   this.name = name;
   this.complete = complete;
   this.priority = priority;
@@ -45,4 +45,6 @@ newTaskForm.addEventListener('submit', e => {
   saveAndRender();
 });
 /* eslint-disable import/prefer-default-export */
-export { tasksContainer };
+export {
+  tasksContainer
+}
