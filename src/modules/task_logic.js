@@ -15,7 +15,7 @@ function Task(name, id, complete, priority, dueDate) {
   this.dueDate = dueDate;
 }
 
-const tasksContainerListener = (tasksContainer) => {
+document.addEventListener('DOMContentLoaded', () => {
   tasksContainer.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'input') {
       const selectedList = lists.find(list => list.id === selectedListId);
@@ -25,17 +25,18 @@ const tasksContainerListener = (tasksContainer) => {
       renderTaskCount(selectedList);
     }
   });
-};
+})
 
-const clearCompleteTasksButtonListener = (clearCompleteTasksButton) => {
+document.addEventListener('DOMContentLoaded', () => {
   clearCompleteTasksButton.addEventListener('click', () => {
     const selectedList = lists.find(list => list.id === selectedListId);
     selectedList.tasks = selectedList.tasks.filter(task => !task.complete);
     saveAndRender();
   });
-};
+})
 
-const newTaskFormListener = (newTaskForm) => {
+
+document.addEventListener('DOMContentLoaded', () => {
   newTaskForm.addEventListener('submit', e => {
     e.preventDefault();
     const taskName = newTaskInput.value;
@@ -49,11 +50,8 @@ const newTaskFormListener = (newTaskForm) => {
 
     saveAndRender();
   });
-};
+})
 
-tasksContainerListener(tasksContainer);
-clearCompleteTasksButtonListener(clearCompleteTasksButton);
-newTaskFormListener(newTaskForm);
 /* eslint-disable import/prefer-default-export */
 export {
   tasksContainer,

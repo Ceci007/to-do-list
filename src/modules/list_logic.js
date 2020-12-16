@@ -12,25 +12,24 @@ function List(name, id, tasks) {
   this.tasks = tasks;
 }
 
-// not working
-const listListener = (listsContainer) => {
+document.addEventListener('DOMContentLoaded', () => {
   listsContainer.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'li') {
       selectedListId = e.target.dataset.listId;
       saveAndRender();
     }
   });
-};
+})
 
-const deleteListener = (deleteListButton) => {
+document.addEventListener('DOMContentLoaded', () => {
   deleteListButton.addEventListener('click', () => {
     lists = lists.filter(list => list.id !== selectedListId);
     selectedListId = null;
     saveAndRender();
   });
-};
+})
 
-const newListFormListener = (newListForm) => {
+document.addEventListener('DOMContentLoaded', () => {
   newListForm.addEventListener('submit', e => {
     e.preventDefault();
     const listName = newListInput.value;
@@ -40,11 +39,8 @@ const newListFormListener = (newListForm) => {
     lists.push(list);
     saveAndRender();
   });
-};
+})
 
-deleteListener(deleteListButton);
-listListener(listsContainer);
-newListFormListener(newListForm);
 /* eslint-disable import/prefer-default-export */
 
 export {

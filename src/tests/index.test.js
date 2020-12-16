@@ -1,12 +1,8 @@
-jest.mock('../modules/task_logic.js');
-// jest.mock("../modules/list_logic.js")
-const jsdom = require('jsdom');
+import * as init from '../modules/render_save';
 
-const { JSDOM } = jsdom;
-
-describe('MODULE BUTTONS CONTAINER TASK', () => {
-  beforeEach(() => JSDOM.fromFile('./dist/index.html')
-    .then((dom) => {
-      document.body.innerHTML = dom.window.document.body.outerHTML;
-    }));
+describe('Testing save function', () => {
+  it('Testing if the Object returned is an Array', () => {
+    init.save();
+    expect(init.lists).toEqual([]);
+  });
 });
