@@ -15,34 +15,44 @@ function Task(name, id, complete, priority, dueDate) {
   this.dueDate = dueDate;
 }
 
-tasksContainer.addEventListener('click', e => {
-  if (e.target.tagName.toLowerCase() === 'input') {
+document.addEventListener('DOMContentLoaded', () => {
+  tasksContainer.addEventListener('click', e => {
+    if (e.target.tagName.toLowerCase() === 'input') {
+      const selectedList = lists.find(list => list.id === selectedListId);
+      const selectedTask = selectedList.tasks.find(task => task.id === e.target.id);
+      selectedTask.complete = e.target.checked;
+      save();
+      renderTaskCount(selectedList);
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  clearCompleteTasksButton.addEventListener('click', () => {
     const selectedList = lists.find(list => list.id === selectedListId);
-    const selectedTask = selectedList.tasks.find(task => task.id === e.target.id);
-    selectedTask.complete = e.target.checked;
-    save();
-    renderTaskCount(selectedList);
-  }
+    selectedList.tasks = selectedList.tasks.filter(task => !task.complete);
+    saveAndRender();
+  });
 });
 
-clearCompleteTasksButton.addEventListener('click', () => {
-  const selectedList = lists.find(list => list.id === selectedListId);
-  selectedList.tasks = selectedList.tasks.filter(task => !task.complete);
-  saveAndRender();
+
+document.addEventListener('DOMContentLoaded', () => {
+  newTaskForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const taskName = newTaskInput.value;
+    const taskPriority = newPriorityInput.value;
+    const taskDueDate = newDueDateInput.value;
+    if (taskName == null || taskName === '') return;
+    const task = new Task(taskName, Date.now().toString(), false, taskPriority, taskDueDate);
+    newTaskInput.value = null;
+    const selectedList = lists.find(list => list.id === selectedListId);
+    selectedList.tasks.push(task);
+
+    saveAndRender();
+  });
 });
 
-newTaskForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const taskName = newTaskInput.value;
-  const taskPriority = newPriorityInput.value;
-  const taskDueDate = newDueDateInput.value;
-  if (taskName == null || taskName === '') return;
-  const task = new Task(taskName, Date.now().toString(), false, taskPriority, taskDueDate);
-  newTaskInput.value = null;
-  const selectedList = lists.find(list => list.id === selectedListId);
-  selectedList.tasks.push(task);
-
-  saveAndRender();
-});
 /* eslint-disable import/prefer-default-export */
-export { tasksContainer };
+export {
+  tasksContainer,
+};

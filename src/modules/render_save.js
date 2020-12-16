@@ -6,6 +6,7 @@ const listCountElement = document.querySelector('[data-list-count]');
 const listDisplayContainer = document.querySelector('[data-list-display-container]');
 const listTitleElement = document.querySelector('[data-list-title]');
 
+
 const LOCAL_STORAGE_LIST_KEY = 'task.lists';
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []; // eslint-disable-line 
@@ -16,7 +17,7 @@ function save() {
   localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId);
 }
 
-const clearElement = element => {
+export const clearElement = element => {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
@@ -48,7 +49,7 @@ const renderTasks = selectedList => {
   });
 };
 
-const renderTaskCount = selectedList => {
+const renderTaskCount = (selectedList) => {
   const incompleteTaskCount = selectedList.tasks.filter(task => !task.complete).length;
   const taskString = incompleteTaskCount === 1 ? 'task' : 'tasks';
   listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
