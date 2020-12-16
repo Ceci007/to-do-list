@@ -1,20 +1,20 @@
 describe('Testing tasks constructor function', () => {
   const tasks = [
-    { 
+    {
       id: 1,
       name: 'shopping1',
       complete: true,
       priority: '2',
-      dueDate: '2020-12-24'
+      dueDate: '2020-12-24',
     },
-    { 
+    {
       id: 2,
       name: 'shopping2',
       complete: false,
       priority: '1',
-      dueDate: '2020-12-25'
-    }
-]
+      dueDate: '2020-12-25',
+    },
+  ];
 
   it('Testing if the first task object id is set to 1', () => {
     expect(tasks[0].id).toBe(1);

@@ -25,7 +25,6 @@ export const clearElement = element => {
 
 const renderTasks = selectedList => {
   selectedList.tasks.forEach(task => {
-    const h1 = document.querySelector('.title')
     const taskElement = document.importNode(taskTemplate.content, true);
     const checkbox = taskElement.querySelector('input');
     checkbox.id = task.id;

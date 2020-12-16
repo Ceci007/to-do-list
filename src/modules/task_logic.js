@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       renderTaskCount(selectedList);
     }
   });
-})
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   clearCompleteTasksButton.addEventListener('click', () => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedList.tasks = selectedList.tasks.filter(task => !task.complete);
     saveAndRender();
   });
-})
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     saveAndRender();
   });
-})
+});
 
 /* eslint-disable import/prefer-default-export */
 export {

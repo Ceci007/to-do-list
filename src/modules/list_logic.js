@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       saveAndRender();
     }
   });
-})
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   deleteListButton.addEventListener('click', () => {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedListId = null;
     saveAndRender();
   });
-})
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   newListForm.addEventListener('submit', e => {
@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     lists.push(list);
     saveAndRender();
   });
-})
+});
 
 /* eslint-disable import/prefer-default-export */
 
 export {
-  listsContainer
+  listsContainer,
 };

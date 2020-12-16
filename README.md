@@ -11,7 +11,7 @@
 
 #### Screenshot
 
-![screenshot](./screenshot.png)
+![screenshot](./screenshot_app.png)
 
 #### Livedemo
 - [github-pages]()
@@ -22,6 +22,10 @@
 - run `npm install`, and then run `npm run build`.
 - open `dist/index.html` with you favorite browser.
 
+## Testing
+- run `npm run test` on the project root.
+
+![screenshot](./screenshot_test.png)
 
 ## Authors
 👤 This is us:

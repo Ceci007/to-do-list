@@ -1,9 +1,5 @@
 import * as init from '../modules/render_save';
 
-const jsdom = require('jsdom');
-
-const { JSDOM } = jsdom;
-
 describe('Testing save function', () => {
   it('Testing if the Object returned is an Array', () => {
     init.save();
@@ -11,19 +7,18 @@ describe('Testing save function', () => {
   });
 });
 
-describe('testing clearElement function', () =>{
+describe('testing clearElement function', () => {
   it('Clear all child elements and return false', () => {
     const element = document.createElement('ul');
-    const li = document.createElement('li')
+    const li = document.createElement('li');
     element.appendChild(li);
     init.clearElement(element);
-    expect(element.hasChildNodes()).toBe(false)
+    expect(element.hasChildNodes()).toBe(false);
   });
   it('Check if element has child nodes', () => {
     const element = document.createElement('ul');
-    const li = document.createElement('li')
+    const li = document.createElement('li');
     element.appendChild(li);
-    expect(element.hasChildNodes()).toBe(true)
-  })
+    expect(element.hasChildNodes()).toBe(true);
+  });
 });
-
