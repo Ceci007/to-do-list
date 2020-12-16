@@ -44,5 +44,5 @@ document.addEventListener('DOMContentLoaded', () => {
 /* eslint-disable import/prefer-default-export */
 
 export {
-  listsContainer,
+  listsContainer
 };
