@@ -12,37 +12,41 @@ function List(name, id, tasks) {
   this.tasks = tasks;
 }
 
+// not working
 const listListener = (listsContainer) => {
-listsContainer.addEventListener('click', e => {
-  if (e.target.tagName.toLowerCase() === 'li') {
-    selectedListId = e.target.dataset.listId;
-    saveAndRender();
-  }
-});
-}
+  listsContainer.addEventListener('click', e => {
+    if (e.target.tagName.toLowerCase() === 'li') {
+      selectedListId = e.target.dataset.listId;
+      saveAndRender();
+    }
+  });
+};
 
 const deleteListener = (deleteListButton) => {
-deleteListButton.addEventListener('click', () => {
-  lists = lists.filter(list => list.id !== selectedListId);
-  selectedListId = null;
-  saveAndRender();
-});
-}
+  deleteListButton.addEventListener('click', () => {
+    lists = lists.filter(list => list.id !== selectedListId);
+    selectedListId = null;
+    saveAndRender();
+  });
+};
 
-newListForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const listName = newListInput.value;
-  if (listName == null || listName === '') return;
-  const list = new List(listName, Date.now().toString(), []);
-  newListInput.value = null;
-  lists.push(list);
-  saveAndRender();
-});
+const newListFormListener = (newListForm) => {
+  newListForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const listName = newListInput.value;
+    if (listName == null || listName === '') return;
+    const list = new List(listName, Date.now().toString(), []);
+    newListInput.value = null;
+    lists.push(list);
+    saveAndRender();
+  });
+};
 
-deleteListener(deleteListButton)
-listListener(listsContainer)
+deleteListener(deleteListButton);
+listListener(listsContainer);
+newListFormListener(newListForm);
 /* eslint-disable import/prefer-default-export */
 
 export {
-  listsContainer
-}
+  listsContainer,
+};

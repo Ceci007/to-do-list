@@ -88,9 +88,6 @@ const saveAndRender = () => {
   save();
   render();
 };
-const sum = (a, b) => {
-  return a + b;
-}
 
 export {
   saveAndRender,
