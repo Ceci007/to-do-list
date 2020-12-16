@@ -17,7 +17,7 @@ function save() {
   localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId);
 }
 
-const clearElement = element => {
+export const clearElement = element => {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
@@ -25,6 +25,7 @@ const clearElement = element => {
 
 const renderTasks = selectedList => {
   selectedList.tasks.forEach(task => {
+    const h1 = document.querySelector('.title')
     const taskElement = document.importNode(taskTemplate.content, true);
     const checkbox = taskElement.querySelector('input');
     checkbox.id = task.id;

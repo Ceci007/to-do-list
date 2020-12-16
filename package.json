@@ -4,6 +4,7 @@
   "description": "A simple to-do list app",
   "main": "index.js",
   "dependencies": {
+    "@types/jsdom": "^16.2.5",
     "jsdom": "^16.4.0"
   },
   "devDependencies": {
